@@ -10,7 +10,7 @@ import model.User;
 
 public class TestUser {
 	LocalDateTime ld = LocalDateTime.of(2005, 4, 9, 22, 05, 12);
-	User user = new User ( "amin@gmail.com","Amin@556",ld);
+	User user = new User( "amin@gmail.com","Amin@556",ld);
 	
 	@Test
 	public void testSetterGetter() {

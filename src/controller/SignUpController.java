@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import businesslogic.RegistrationValidation;
+import model.User;
 
 
 @WebServlet(urlPatterns= {"/signup"})
@@ -23,7 +25,6 @@ public class SignUpController extends HttpServlet {
        
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/signupView.jsp");
 		rd.forward(request, response);
@@ -31,12 +32,15 @@ public class SignUpController extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	/*	String email = request.getParameter("email"); 
-		String password = request.getParameter("password"); 
-		String confirmPassword = request.getParameter("confirmPassword"); 
-		LocalDateTime date= LocalDateTime.now(); 
+		String email = request.getParameter("email"); //  get the email value from the jsp/html page
+		String password = request.getParameter("password"); //  get the password value from the jsp/html page
+		String confirmPassword = request.getParameter("confirmPassword"); //  get the confirm password value from the jsp/html page
+		LocalDateTime date= LocalDateTime.now(); // Java 8 Time API used to get system date and time at a particular instance
+		System.out.println(email);
+		System.out.println(password);
+		System.out.println(confirmPassword);
 		
-
+		RegistrationValidation checkUser=new RegistrationValidation();
 		
 		if(checkUser.checkUserDetails(email, password, confirmPassword))
 		{
@@ -58,7 +62,7 @@ public class SignUpController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		
-		*/
+		
 	}
 
 }
